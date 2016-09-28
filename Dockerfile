@@ -1,5 +1,5 @@
 # ubuntu:14.04 + emacs-25.1
-from wenxijin/emacs:latest
+from wenxijin/dockerfile-emacs:latest
 
 maintainer Wenxi Jin <jwenxi@gmail.com>
 
