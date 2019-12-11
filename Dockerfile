@@ -10,6 +10,7 @@ ENV UNAME wjn
 # Install packages
 RUN apt update && \
     apt -y install \
+    build-essential \
     sudo \
     wget \
     emacs \
@@ -35,5 +36,3 @@ RUN git clone https://github.com/WenxiJin/.spacemacs.d.git /home/${UNAME}/.space
       -o -type f -exec chmod u+rw,g+rw,o+r {} \; \)                                             && \
     sudo chown -R ${uid}:${gid} $HOME                                                           && \
     emacs -nw -batch -u "${UNAME}" -q -kill
-
-CMD ["cd"]
