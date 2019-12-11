@@ -1,4 +1,4 @@
-FROM ubuntu:18.04 as base
+FROM spacemacs/emacs-snapshot:develop as base
 
 maintainer Wenxi Jin <jwenxi@gmail.com>
 
@@ -10,10 +10,7 @@ ENV UNAME wjn
 # Install packages
 RUN apt update && \
     apt -y install \
-    build-essential \
     sudo \
-    wget \
-    emacs \
     silversearcher-ag \
     git
 
@@ -34,5 +31,4 @@ RUN git clone https://github.com/WenxiJin/.spacemacs.d.git /home/${UNAME}/.space
     sudo find $HOME/                                                                               \
       \( -type d -exec chmod u+rwx,g+rwx,o+rx {} \;                                                \
       -o -type f -exec chmod u+rw,g+rw,o+r {} \; \)                                             && \
-    sudo chown -R ${uid}:${gid} $HOME                                                           && \
-    emacs -nw -batch -u "${UNAME}" -q -kill
+    sudo chown -R ${uid}:${gid} $HOME
